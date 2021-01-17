@@ -1,0 +1,11 @@
+com/github/chandanv89/hateoasexample/service/CustomerOrderService.class
+com/github/chandanv89/hateoasexample/aspects/LoggingAspect.class
+com/github/chandanv89/hateoasexample/model/Order.class
+com/github/chandanv89/hateoasexample/generator/GuidGenerator.class
+com/github/chandanv89/hateoasexample/persistence/OrderRepository.class
+com/github/chandanv89/hateoasexample/model/Greeting.class
+com/github/chandanv89/hateoasexample/HateosExampleApplication.class
+com/github/chandanv89/hateoasexample/model/Customer.class
+com/github/chandanv89/hateoasexample/model/CustomerOrder.class
+com/github/chandanv89/hateoasexample/api/CustomerOrderController.class
+com/github/chandanv89/hateoasexample/persistence/CustomerRepository.class
