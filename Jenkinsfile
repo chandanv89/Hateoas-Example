@@ -36,9 +36,9 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh "cp ${env.WORKSPACE}/target/hateoas-example-*.jar /opt/deployments/hateoas-example.jar"
-                sh 'ln -s /opt/deployments/hateoas-example.jar /etc/init.d/hateoas-example'
+                sh 'sudo ln -s /opt/deployments/hateoas-example.jar /etc/init.d/hateoas-example'
                 echo 'Starting application...'
-                sh 'service hateoas-example start'
+                sh 'sudo service hateoas-example start'
             }
         }
     }
