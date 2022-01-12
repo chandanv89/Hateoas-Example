@@ -35,7 +35,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                echo "${env.WORKSPACE}"
+                sh 'cp ${env.WORKSPACE}/target/*.jar /opt/deployments/hateoas-example.jar'
+                sh 'ln -s /opt/deployments/hateoas-example.jar /etc/init.d/hateoas-example'
+                echo 'Starting application...'
+                sh 'service hateoas-example start'
             }
         }
     }
