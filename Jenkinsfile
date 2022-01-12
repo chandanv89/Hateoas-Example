@@ -8,38 +8,37 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Cleaning workspace...'
-		        sh 'mvn clean'
+		        //sh 'mvn clean'
 
 		        echo 'Compiling...'
-		        sh 'mvn compile'
+		        //sh 'mvn compile'
 
 		        echo 'Packaging...'
-		        sh 'mvn package'
+		        //sh 'mvn package'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-		        sh 'mvn test'
+		        //sh 'mvn test'
             }
         }
 
 	    stage('Install') {
 		    steps {
 			    echo 'Installing...'
-			    sh 'mvn install -DskipTests'
+			    //sh 'mvn install -DskipTests'
 		    }
 	    }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                echo "${env.JOB_NAME} ${env.BUILD_NUMBER}"
-                sh 'cp ${env.WORKSPACE}/target/hateoas-example-*.jar /opt/deployments/hateoas-example.jar'
-                echo 'ln -s /opt/deployments/hateoas-example.jar /etc/init.d/hateoas-example'
+                sh "cp ${env.WORKSPACE}/target/hateoas-example-*.jar /opt/deployments/hateoas-example.jar"
+                sh 'ln -s /opt/deployments/hateoas-example.jar /etc/init.d/hateoas-example'
                 echo 'Starting application...'
-                echo 'service hateoas-example start'
+                sh 'service hateoas-example start'
             }
         }
     }
